@@ -1,0 +1,265 @@
+/* Basics */
+
+body,html { 
+	margin:0; padding:0;
+	font-family:"Bitstream Vera Sans","Verdana",sans-serif;
+	background:white;
+	color:black;
+}
+
+body {
+	padding-bottom:70px;
+	padding-top:20px;
+}
+
+ul {
+	margin:0;
+	padding-left:20px;
+}
+
+a img { border-width:1px; }
+
+h1 {
+	font-size:1.7em;
+	font-weight:normal;
+	border-bottom:1px dotted black;
+}
+
+
+/* INDEX */
+
+#stuff {
+	position:absolute;
+	left:0;
+	text-align:right;
+	width:40%;
+}	
+
+.links {
+	list-style:none;
+	margin:0; padding:0;
+}
+.links a {
+	text-decoration:none;
+	color:black;
+	font-size:1.1em;
+}
+.links a:hover {
+	text-decoration:underline;
+}
+.links .extra {
+	font-size:.8em;
+}
+.links a:hover .extra {
+	display:inline;
+}
+
+#myinfo {
+	position:absolute;
+	right:0;
+	width:57%;
+}
+
+.character:after {
+	content:' ';
+	clear:both;
+	display:block;
+}
+.character dt {
+	float:left;
+	font-weight:bold;
+	clear:left;
+}
+.character dd {
+	float:left;
+	margin-left:1ex;
+}
+
+/* Specific pages */
+#mapindex { 
+	margin-left:3%;
+	margin-right:50%;
+}
+.error {
+	color:red;
+	font-weight:bold;
+}
+#mapindex .links a {
+	text-decoration:none;
+}
+
+/* MAPS */
+#mapbox {
+	position:relative;
+	border:1px solid white;
+	margin:auto;
+}
+/* Map and overlay */
+.map,.overlay {
+	position:absolute;
+	top:0;
+	left:0;
+}
+.map {
+	z-index:1;
+}
+.overlay {
+	z-index:2;
+}
+
+/* Stop IE6 from dying */
+* html .overlay { display:none; }
+
+
+/* Options */
+legend { margin-top:.3em; color:white;}
+
+#options label,#options input { display:none; }
+* html #options label { display:block; }
+* html #options input { display:inline; }
+#options fieldset:hover label { display:block; }
+#options fieldset:hover input { display:inline; }
+
+.homelink {
+	position:absolute;
+	top:10px;
+	right:10px;
+	display:block;
+	padding:.2em .5em;
+	z-index:5;
+	color:white;
+	border:1px solid black;
+	text-decoration:none;
+	background:url('images/ui/labelbg.png');
+}
+#options {
+	position:absolute;
+	top:10px;
+	left:10px;
+	z-index:3;
+	color:white;
+	width:200px;
+	background:url('images/labelbg.png');
+	border:1px solid black;
+}
+#options input {
+	border:1px solid black;
+}
+label {
+	display:block; 
+	margin:.2em 0;
+}
+fieldset {
+	border:none; 
+}
+
+/* LABELS */ 
+
+/* All labels */
+.label {
+	display:block;
+	padding:.2em;
+	color:white;
+	z-index:6;
+	text-decoration:none;
+}
+.label:hover {
+	z-index:7;
+}
+
+.extra { 
+	display:none; 
+	padding:.2em;
+}
+a:hover .extra {
+	display:block;
+}
+
+
+/* Major labels */
+.label.major .name {
+	font-size:1.1em;
+}
+.label.major {
+	background:url('images/ui/labelbg.png');
+	border:1px solid black;
+}
+.major .extra {
+	padding:0; 
+}
+.major.syrtis .name{
+	color:#1ab00a;
+}
+.major.ignis .name{
+	color:#d23600;
+}
+.major.alsius .name{
+	color:#007dcd;
+}
+.major .nickname {
+	display:block;
+	color:white;
+}
+
+/* Minor labels */
+.label.minor {
+	color:black;
+	font-weight:bold;
+	padding-left:15px;
+	/*background:url('images/ui/placedot.png') no-repeat left 2px;*/
+}
+
+.minor, .nickname {
+	font-size:.9em;
+}
+
+/* Icons */
+.icon.syrtis.npc img {
+	border:1px solid #1ab00a;
+}
+.icon.ignis.npc img {
+	border:1px solid #d23600;
+}
+.icon.alsius.npc img {
+	border:1px solid #007dcd;
+}
+.icon { 
+	width:15px;
+}
+.icon .extra {
+	min-width:152px;
+}
+.icon .name { 
+	font-weight:bold;
+}
+
+/* Type specific stuff */
+.minor.landmark {
+	padding:0;
+	padding-left:16px;
+	background:url('images/ui/placedot.png') 0px 2px no-repeat;
+}
+
+/* Other */
+.profession, .coords {
+	display:block;
+}
+/* Minor and icon labels have .extra in its own box */
+.minor .extra, .icon .extra {
+	background:url('images/ui/labelbg.png');
+	color:white;
+	border:1px solid black;
+	max-width:200px;
+}
+
+.label img {
+	border:none;
+}
+
+.extra img {
+	display:block;
+	margin:.2em auto;
+	border:1px solid white;
+}
+
+

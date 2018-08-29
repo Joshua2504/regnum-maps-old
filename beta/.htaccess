@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteRule ^maps/(.*)$ maps.py/$1
+
+RedirectMatch .*maps(.py)?$ $0/
+
+PythonAutoReload on

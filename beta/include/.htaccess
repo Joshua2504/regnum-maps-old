@@ -1,0 +1,4 @@
+SetHandler none
+RemoveHandler .py
+PythonAutoReload on
+Deny from All

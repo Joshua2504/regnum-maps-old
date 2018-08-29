@@ -1,0 +1,128 @@
+<?php
+require_once('classes.php');
+require_once('functions.php');
+$imgdir = './images';
+
+$options['Hide Areas'] = 'noareas';
+$options['Hide Towns'] = 'notowns';
+$options['Disable Extra Info'] = 'noextra';
+$options['Disable Overlay'] = 'nooverlay';
+
+$towns = array();
+$areas = array();
+
+$towns['skolheim'] = new label('Skolheim Village','skolheim','alsius','100px','290px');
+$towns['rottersvall'] = new label('Rottersvall Village','rottersvall','alsius','150px','180px');
+$towns['montsognir'] = new label('Montsognir City','montsognir','alsius','280px','200px');
+$towns['birka'] = new label('Birka City','birka','alsius','510px','290px');
+$towns['gokstad'] = new label('Gokstad Port','gokstad','alsius','480px','30px');
+$towns['hopstad'] = new label('Hopstad Town','hopstad','alsius','300px','430px');
+
+$areas['dverg'] = new label('Dvergardunn<br>Run','dverg','alsius','320px','80px');
+$areas['druins'] = new label('Dvergardunn<br>Ruins','druins','alsius','400px','50px');
+$areas['kheled'] = new label('Kheled Valley','kheled','alsius','340px','240px');
+$areas['kheledslope'] = new label('Kheled\'s Slope','kheledslope','alsius','400px','280px');
+$areas['splateau'] = new label('Snowy Plateau','splateau','alsius','250px','300px');
+$areas['hcolli'] = new label('Hopstad\'s Colisseum','hcolli','alsius','280px','350px');
+
+$areas['snowrocks'] = new label('Snowy<br>Rocks','snowrocks','alsius','480px','220px');
+$areas['wheights'] = new label('Withering<br>Heights','wheights','alsius','450px','150px');
+$areas['goksurr'] = new label('Gokstad\'s<br>Surroundings','goksurr','alsius','540px','20px');
+$areas['hellu'] = new label('Helluland','hellu','alsius','640px','50px');
+$areas['wpraire'] = new label('Wall Praire','wpraire','alsius','590px','210px');
+$areas['vforest'] = new label('Vinland Forest','vforest','alsius','550px','250px');
+$areas['fwforest'] = new label('Frozen Wind Forest','fwforest','alsius','430px','430px');
+$areas['burrunz'] = new label('Burrun-Zha South Beach','burrunz','alsius','700px','50px');
+
+
+if($_GET['noextra'] != 'on') {
+	/* Automated screenshot adding */
+	foreach($towns as $town) {
+		$pic = getpic($town,'small-');
+		if($pic != false) {
+			$pic = $imgdir.'/'.$pic;
+			$town->extra .= '<img src="'.$pic.'" alt="A view of '.$town->name."\">\n";
+		}
+	}
+	foreach($areas as $area) {
+		$pic = getpic($area,'small-');
+		if($pic != false) {
+			$pic = $imgdir.'/'.$pic;
+			$area->extra .= '<img src="'.$pic.'" alt="A view of '.$area->name."\">\n";
+		}
+	}
+}
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Regnum - Labeled map of Alsius</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<style type="text/css">
+	html,body { background:black; }
+	#mapbox {
+		width:554px;
+		height:730px;
+		position:relative;
+		margin:auto;
+	}
+	a.nickname { 
+		background:none;
+		padding:0;
+	}
+
+	<?php
+	foreach($towns as $town)
+			echo $town->css();
+
+	foreach($areas as $area)
+			echo $area->css();
+
+	?>
+	</style>
+
+</head>
+<body>
+
+
+<div id="mapbox">
+	<a href="index.html" class="homelink">Back to index</a>
+
+	<div id="options">
+		<form action="" method="get">
+		<fieldset><legend>Options</legend>
+		<?php 
+		foreach($options as $name => $opt) {
+			echo '<label for="'.$opt.'"><input type="checkbox" name="'.$opt.'" id="'.$opt.'"';
+			if($_GET[$opt] == 'on')
+				echo ' checked';
+			echo '> '.$name."</label>\n";
+		}?>
+		<input type="submit" value="Submit">
+		</fieldset>
+		</form>
+	</div>
+
+	<img src="images/alsius/alsiusunmarked.jpg" alt="Map of Alsius inner realm" class="map">
+
+	<?php
+	if($_GET['nooverlay'] != 'on')
+		echo '<img src="images/alsius/overlay.png" alt="" class="overlay">';
+
+	if($_GET['notowns'] != 'on') {
+		foreach($towns as $town)
+			echo $town->biglabel();
+	}
+
+	if($_GET['noareas'] != 'on') {
+		foreach($areas as $area)
+			echo $area->smalllabel();
+	}
+	?>
+
+</div>
+
+</body>
+</html>

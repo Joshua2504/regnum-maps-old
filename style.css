@@ -1,0 +1,196 @@
+/* Basics */
+
+body,html { 
+	margin:0; padding:0;
+	font-family:"Bitstream Vera Sans","Verdana",sans-serif;
+	background:white;
+	color:black;
+}
+
+body {
+	padding-bottom:70px;
+	padding-top:20px;
+}
+
+ul {
+	margin:0;
+	padding-left:20px;
+}
+
+a img { border-width:1px; }
+
+h1 {
+	font-size:1.7em;
+	font-weight:normal;
+	border-bottom:1px dotted black;
+}
+
+
+/* INDEX */
+
+#stuff {
+	position:absolute;
+	left:0;
+	text-align:right;
+	width:40%;
+}	
+
+.links {
+	list-style:none;
+	margin:0; padding:0;
+}
+.links a {
+	text-decoration:none;
+	color:black;
+	font-size:1.1em;
+}
+.links a:hover {
+	text-decoration:underline;
+}
+
+#myinfo {
+	position:absolute;
+	right:0;
+	width:57%;
+}
+
+.character:after {
+	content:' ';
+	clear:both;
+	display:block;
+}
+.character dt {
+	float:left;
+	font-weight:bold;
+	clear:left;
+}
+.character dd {
+	float:left;
+	margin-left:1ex;
+}
+
+/* MAPS */
+#mapbox {
+	position:relative;
+	border:1px solid white;
+	margin:auto;
+}
+legend { margin-top:.3em; color:white;}
+
+#options label,#options input { display:none; }
+* html #options label { display:block; }
+* html #options input { display:inline; }
+#options fieldset:hover label { display:block; }
+#options fieldset:hover input { display:inline; }
+
+.homelink {
+	position:absolute;
+	top:10px;
+	right:10px;
+	display:block;
+	padding:.2em .5em;
+	z-index:5;
+	color:white;
+	border:1px solid black;
+	text-decoration:none;
+	background:url('images/labelbg.png');
+}
+#options {
+	position:absolute;
+	top:10px;
+	left:10px;
+	z-index:3;
+	color:white;
+	width:200px;
+	background:url('images/labelbg.png');
+	border:1px solid black;
+}
+#options input {
+	border:1px solid black;
+}
+label {
+	display:block; 
+	margin:.2em 0;
+}
+fieldset {
+	border:none; 
+}
+
+.label {
+	max-width:200px;
+	background:url('images/labelbg.png');
+	border:1px solid black;
+	display:block;
+	padding:.2em;
+	color:white;
+	z-index:5;
+	text-decoration:none;
+}
+.label:hover,.nickname:hover {
+	z-index:6;
+}
+
+.extra { 
+	display:none; 
+}
+.extra p {
+	margin-top:0;
+}
+
+.extra img {
+	display:block;
+	margin:.2em;
+	border:1px solid white;
+}
+
+a:hover .extra {
+	display:block;
+}
+
+.map,.overlay {
+	position:absolute;
+	top:0;
+	left:0;
+}
+.overlay {
+	z-index:2;
+}
+
+* html .overlay { display:none; }
+
+
+.fortname {
+	font-size:1.1em;
+}
+.nickname {
+	font-size:.9em;
+	display:block;
+}
+
+.extra img { margin: auto;}
+.extra { padding:.2em; }
+
+a.nickname {
+	color:black;
+	text-decoration:none;
+	z-index:5;
+	font-weight:bold;
+	padding-left:15px;
+	max-width:300px;
+	background:url('images/placedot.png') no-repeat left 2px;
+}
+.nickname .extra {
+	background:url('images/labelbg.png');
+	color:white;
+	border:1px solid black;
+	max-width:200px;
+}
+.syrtis {
+	color:#1ab00a;
+}
+.ignis {
+	color:#d23600;
+}
+.alsius {
+	color:#007dcd;
+}
